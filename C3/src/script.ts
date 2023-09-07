@@ -23,4 +23,11 @@
 // Array
 
 const arr: number[] = [12, 24, 65, 14];
-const arr2: string[] = ["usama"];
+
+const arr1: [number, number, number] = [25, 26, 24];
+
+// another syntax
+const arr2: Array<string> = ["usama"];
+
+// if we want to add 2 types
+const arr3: Array<string | number> = ["usama", 254];

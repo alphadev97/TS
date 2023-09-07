@@ -15,4 +15,8 @@
 // };
 // Array
 const arr = [12, 24, 65, 14];
+const arr1 = [25, 26, 24];
+// another syntax
 const arr2 = ["usama"];
+// if we want to add 2 types
+const arr3 = ["usama", 254];
