@@ -23,11 +23,17 @@
 
 // ------------------------------------------------
 
-// Default parameter
-type FuncTyp = (n: number, m: number, l?: number) => number;
+// // Rest Operator
+// type FuncTyp = (...m: number[]) => number[];
 
-const func: FuncTyp = (n, m, l = 20) => {
-  return n * m * l;
-};
+// const func: FuncTyp = (...m) => {
+//   return m;
+// };
 
-func(25, 23);
+// func(25, 23, 54, 41, 7);
+
+// ------------------------------------------------
+
+function lol(n: number): number {
+  return 45;
+}
