@@ -1,55 +1,33 @@
-// type obj = {
-//   height: number;
-//   weight: number;
-//   gender?: boolean; // Question mark for optional type
+// type FuncTyp = (n: number, m: number, l?: number) => number;
+
+// // Optional parameter
+
+// const func: FuncTyp = (n, m, l) => {
+//   if (typeof l === "undefined") return n * m;
+
+//   return n * m * l;
 // };
 
-interface obj {
-  height: number;
-  weight: number;
-  gender?: boolean; // Question mark for optional type
-}
+// func(25, 23);
 
-type FuncType = (n: number, m: number) => void;
+// ------------------------------------------------
 
-interface newObj extends obj {
-  scholer: boolean;
-  func: FuncType;
-}
+// // Default parameter
+// type FuncTyp = (n: number, m: number, l?: number) => number;
 
-const gigi: newObj = {
-  height: 254,
-  weight: 541,
-  scholer: true,
-  func: (n, m) => {
-    console.log(n * m);
-  },
+// const func: FuncTyp = (n, m, l = 20) => {
+//   return n * m * l;
+// };
+
+// func(25, 23);
+
+// ------------------------------------------------
+
+// Default parameter
+type FuncTyp = (n: number, m: number, l?: number) => number;
+
+const func: FuncTyp = (n, m, l = 20) => {
+  return n * m * l;
 };
 
-const kendla: newObj = {
-  height: 545,
-  weight: 456,
-  scholer: true,
-  func: (n, m) => {
-    console.log(n * m);
-  },
-};
-
-kendla.func(10, 10);
-
-const obj: obj = {
-  height: 244,
-  weight: 342,
-  gender: true,
-};
-
-const obj2: obj = {
-  height: 354,
-  weight: 542,
-  gender: false,
-};
-
-const obj3: obj = {
-  height: 354,
-  weight: 542,
-};
+func(25, 23);
