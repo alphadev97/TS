@@ -8,7 +8,19 @@ const gigi = {
     height: 254,
     weight: 541,
     scholer: true,
+    func: (n, m) => {
+        console.log(n * m);
+    },
 };
+const kendla = {
+    height: 545,
+    weight: 456,
+    scholer: true,
+    func: (n, m) => {
+        console.log(n * m);
+    },
+};
+kendla.func(10, 10);
 const obj = {
     height: 244,
     weight: 342,
