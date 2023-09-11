@@ -199,31 +199,49 @@
 
 // Type Utility
 
-// Partial <Type>
-// Required <Type>
-// Readonly <Type>
-// Record <Keys, Type>
-// Pick < Type, Keys>
-// Omit < Type, Keys>
-// Exclude < Type, ExcludedUnion>
-// Extract < Type, Union>
-// NonNullable < Type>
-// Parameters < Type>
-// ConstructorParameters < Type>
-// ReturnType < Type>
-// InstanceType < Type>
+//? Partial <Type>
+//? Required <Type>
+//? Readonly <Type>
+//? Record <Keys, Type>
+//? Pick < Type, Keys>
+//? Omit < Type, Keys>
+//? Exclude < Type, ExcludedUnion>
+//? Extract < Type, Union>
+//? NonNullable < Type>
+//? Parameters < Type>
+//? ConstructorParameters < Type>
+//? ReturnType < Type>
+//? InstanceType < Type>
 
-// Partial <Type>
+//? Partial <Type>
 // type User = {
 //   name: string;
 //   email: string;
 // };
 // type User2 = Partial<User>;
 
-// Required <Type> - opposite of partial
+//? Required <Type> - opposite of partial
+// type User = {
+//   name?: string;
+//   email?: string;
+// };
+
+// const user2: Required<User> = {
+//   name: "usama",
+//   email: "usama@usama.com",
+// };
+
+//? Readonly <Type>
 type User = {
-  name?: string;
-  email?: string;
+  name: string;
+  email: string;
 };
 
-type User2 = Required<User>;
+type User2 = Readonly<User>;
+
+const user: User2 = {
+  name: "usama",
+  email: "usama@usama.com",
+};
+
+user.email = "jhdjsdhjkadk";
