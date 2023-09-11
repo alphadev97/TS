@@ -78,33 +78,33 @@
 
 // Classes
 
-class Player {
-  //   private height; // private property cannot access outside class
-  //   public weight;
+// class Player {
+//   //   private height; // private property cannot access outside class
+//   //   public weight;
 
-  public readonly id: string;
+//   public readonly id: string;
 
-  constructor(
-    private height: number,
-    public weight: number,
-    protected power: number
-  ) {
-    this.id = String(Math.random() * 100);
-  }
+//   constructor(
+//     private height: number,
+//     public weight: number,
+//     protected power: number
+//   ) {
+//     this.id = String(Math.random() * 100);
+//   }
 
-  get getMyHeight(): number {
-    return this.height;
-  }
+//   get getMyHeight(): number {
+//     return this.height;
+//   }
 
-  set changeHeight(val: number) {
-    this.height = val;
-  }
-}
+//   set changeHeight(val: number) {
+//     this.height = val;
+//   }
+// }
 
-const abhi = new Player(100, 150, 23);
-console.log("Height", abhi.getMyHeight);
-abhi.changeHeight = 500;
-console.log("Height", abhi.getMyHeight);
+// const abhi = new Player(100, 150, 23);
+// console.log("Height", abhi.getMyHeight);
+// abhi.changeHeight = 500;
+// console.log("Height", abhi.getMyHeight);
 
 // class Player2 extends Player {
 //   special: boolean;
@@ -120,3 +120,21 @@ console.log("Height", abhi.getMyHeight);
 // console.log("Height", abhi.getMyHeight());
 // console.log("Power", abhi.getMyPower());
 // console.log("Id", abhi.id);
+
+interface ProductType {
+  name: string;
+  price: number;
+  stock: number;
+  id: string;
+  offer?: boolean;
+}
+
+class Product implements ProductType {
+  public id: string = String(Math.random() * 1000);
+
+  constructor(
+    public name: string,
+    public price: number,
+    public stock: number
+  ) {}
+}
