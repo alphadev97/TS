@@ -125,16 +125,23 @@ interface ProductType {
   name: string;
   price: number;
   stock: number;
-  id: string;
   offer?: boolean;
 }
 
-class Product implements ProductType {
-  public id: string = String(Math.random() * 1000);
+interface giveId {
+  getId: () => string;
+}
+
+class Product implements ProductType, giveId {
+  private id: string = String(Math.random() * 1000);
 
   constructor(
     public name: string,
     public price: number,
     public stock: number
   ) {}
+
+  getId = () => this.id;
 }
+
+const product1 = new Product("Macbook", 2000, 20);

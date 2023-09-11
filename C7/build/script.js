@@ -6,5 +6,7 @@ class Product {
         this.price = price;
         this.stock = stock;
         this.id = String(Math.random() * 1000);
+        this.getId = () => this.id;
     }
 }
+const product1 = new Product("Macbook", 2000, 20);
