@@ -171,6 +171,7 @@
 // };
 
 interface Person {
+  // [key: string]: string;
   name: string;
   email: string;
 }
@@ -180,4 +181,16 @@ const myObj: Person = {
   email: "gdgsdhd@HJDFHK.COM",
 };
 
-console.log(myObj.email);
+const getName = (): string => {
+  return myObj["name"];
+};
+
+const getEmail = (): string => {
+  return myObj["email"];
+};
+
+const detData = (key: keyof Person): string => {
+  return myObj[key];
+};
+
+detData("email");

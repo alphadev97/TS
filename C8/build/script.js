@@ -4,4 +4,13 @@ const myObj = {
     name: "Usama",
     email: "gdgsdhd@HJDFHK.COM",
 };
-console.log(myObj.email);
+const getName = () => {
+    return myObj["name"];
+};
+const getEmail = () => {
+    return myObj["email"];
+};
+const detData = (key) => {
+    return myObj[key];
+};
+detData("email");
