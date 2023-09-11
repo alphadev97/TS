@@ -243,3 +243,27 @@
 //   name: "usama",
 //   email: "usama@usama.com",
 // };
+
+//? Record <Keys, Type>
+
+// type user = {
+//   name: string;
+//   email: string;
+// };
+
+// type user2 = Record<"name" | "email" | "gender", string>;
+
+// Example
+
+// interface UserInfo {
+//   age: number;
+// }
+
+// type UserName = "john" | "andrew" | "elon" | "jack";
+
+// const users: Record<UserName, UserInfo> = {
+//   john: { age: 34 },
+//   andrew: { age: 34 },
+//   elon: { age: 34 },
+//   jack: { age: 34 },
+// };
