@@ -40,13 +40,24 @@
 
 // function with Object
 
-type getDataType = (product: {
+interface Product {
   name: string;
   stock: number;
   price: number;
   photo: string;
-}) => void;
+}
+
+type getDataType = (product: Product) => void;
 
 const getData: getDataType = (product): void => {
   console.log(product);
 };
+
+const productOne: Product = {
+  name: "Macbook",
+  stock: 46,
+  price: 9999,
+  photo: "samplephotoUrl",
+};
+
+getData(productOne);
