@@ -231,17 +231,15 @@
 //   email: "usama@usama.com",
 // };
 
-//? Readonly <Type>
-type User = {
-  name: string;
-  email: string;
-};
+//? Readonly <Type> - made every property constant (readonly)
+// type User = {
+//   name: string;
+//   email: string;
+// };
 
-type User2 = Readonly<User>;
+// type User2 = Readonly<User>;
 
-const user: User2 = {
-  name: "usama",
-  email: "usama@usama.com",
-};
-
-user.email = "jhdjsdhjkadk";
+// const user: User2 = {
+//   name: "usama",
+//   email: "usama@usama.com",
+// };
