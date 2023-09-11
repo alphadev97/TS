@@ -160,10 +160,12 @@
 
 const form = document.getElementById("myform") as HTMLFormElement;
 const myinput = document.querySelector("form > input") as HTMLInputElement;
+let addedd = document.getElementById("addedd") as HTMLParagraphElement;
 
 form.onsubmit = (e) => {
   e.preventDefault();
   const value = Number(myinput.value);
+  addedd.innerHTML = String(value + 20);
   console.log(value);
   console.log(typeof value);
 };

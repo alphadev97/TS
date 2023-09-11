@@ -116,9 +116,11 @@
 // img.src;
 const form = document.getElementById("myform");
 const myinput = document.querySelector("form > input");
+let addedd = document.getElementById("addedd");
 form.onsubmit = (e) => {
     e.preventDefault();
     const value = Number(myinput.value);
+    addedd.innerHTML = String(value + 20);
     console.log(value);
     console.log(typeof value);
 };
