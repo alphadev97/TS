@@ -158,14 +158,26 @@
 // const img = document.querySelector("img")!;
 // img.src;
 
-const form = document.getElementById("myform") as HTMLFormElement;
-const myinput = document.querySelector("form > input") as HTMLInputElement;
-let addedd = document.getElementById("addedd") as HTMLParagraphElement;
+// const form = document.getElementById("myform") as HTMLFormElement;
+// const myinput = document.querySelector("form > input") as HTMLInputElement;
+// let addedd = document.getElementById("addedd") as HTMLParagraphElement;
 
-form.onsubmit = (e) => {
-  e.preventDefault();
-  const value = Number(myinput.value);
-  addedd.innerHTML = String(value + 20);
-  console.log(value);
-  console.log(typeof value);
+// form.onsubmit = (e) => {
+//   e.preventDefault();
+//   const value = Number(myinput.value);
+//   addedd.innerHTML = String(value + 20);
+//   console.log(value);
+//   console.log(typeof value);
+// };
+
+interface Person {
+  name: string;
+  email: string;
+}
+
+const myObj: Person = {
+  name: "Usama",
+  email: "gdgsdhd@HJDFHK.COM",
 };
+
+console.log(myObj.email);
