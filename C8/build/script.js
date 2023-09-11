@@ -108,5 +108,17 @@
 // const product1 = new Product("Macbook", 2000, 20);
 // --------------------------------------------------------
 // Type Assertion
-const btn = document.getElementById("btn");
-btn.onclick;
+// const btn = document.getElementById("btn")!;
+// const btn = document.getElementById("btn") as HTMLElement;
+// const btn = <HTMLElement>document.getElementById("btn");
+// btn.onclick;
+// const img = document.querySelector("img")!;
+// img.src;
+const form = document.getElementById("myform");
+const myinput = document.querySelector("form > input");
+form.onsubmit = (e) => {
+    e.preventDefault();
+    const value = Number(myinput.value);
+    console.log(value);
+    console.log(typeof value);
+};

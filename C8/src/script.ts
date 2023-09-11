@@ -150,5 +150,20 @@
 
 // Type Assertion
 
-const btn = document.getElementById("btn") as HTMLElement;
-btn.onclick;
+// const btn = document.getElementById("btn")!;
+// const btn = document.getElementById("btn") as HTMLElement;
+// const btn = <HTMLElement>document.getElementById("btn");
+// btn.onclick;
+
+// const img = document.querySelector("img")!;
+// img.src;
+
+const form = document.getElementById("myform") as HTMLFormElement;
+const myinput = document.querySelector("form > input") as HTMLInputElement;
+
+form.onsubmit = (e) => {
+  e.preventDefault();
+  const value = Number(myinput.value);
+  console.log(value);
+  console.log(typeof value);
+};
