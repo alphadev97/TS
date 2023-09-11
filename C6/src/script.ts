@@ -40,24 +40,36 @@
 
 // function with Object
 
-interface Product {
-  name: string;
-  stock: number;
-  price: number;
-  photo: string;
-}
+// interface Product {
+//   name: string;
+//   stock: number;
+//   price: number;
+//   photo: string;
+//   readonly id: string;
+// }
 
-type getDataType = (product: Product) => void;
+// type getDataType = (product: Product) => void;
 
-const getData: getDataType = (product): void => {
-  console.log(product);
-};
+// const getData: getDataType = (product): void => {
+//   console.log(product);
+// };
 
-const productOne: Product = {
-  name: "Macbook",
-  stock: 46,
-  price: 9999,
-  photo: "samplephotoUrl",
-};
+// const productOne: Product = {
+//   name: "Macbook",
+//   stock: 46,
+//   price: 9999,
+//   photo: "samplephotoUrl",
+//   id: "gJHdGSdjkAGd",
+// };
 
-getData(productOne);
+// getData(productOne);
+
+// Never Type
+
+// type themeMode = "light" | "dark";
+
+// const mode: themeMode = "light";
+
+// const errorHandler = (): never => {
+//   throw new Error();
+// };
