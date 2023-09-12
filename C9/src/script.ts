@@ -290,3 +290,55 @@
 // }
 
 // type random = Omit<ShippingInfo, "country">;
+
+//? Exclude < Type, ExcludedUnion>
+
+// type MyUnion = string | number | boolean;
+// type Random = Exclude<MyUnion, boolean>;
+
+//? Extract < Type, Union>
+
+// type MyUnion = string | number | boolean;
+// type Random = Extract<MyUnion, boolean>;
+
+//? NonNullable < Type>
+
+// type MyUnion = string | number | boolean | null;
+// type Random = NonNullable<MyUnion>;
+
+//? Parameters < Type>
+
+// const myFunc = (a: number, b: string) => {
+//   console.log(a + b);
+// };
+
+// type random = Parameters<typeof myFunc>;
+
+//? ConstructorParameters < Type>
+
+// class SampleClass {
+//   constructor(public s: string, public t: string) {}
+// }
+
+// type random = ConstructorParameters<typeof SampleClass>;
+
+//? ReturnType < Type>
+
+// const myFunc = (a: number, b: string): string => {
+//   return a + b;
+// };
+
+// type random = ReturnType<typeof myFunc>;
+
+//? InstanceType < Type>
+
+// class SampleClass {
+//   constructor(public s: string, public t: string) {}
+// }
+
+// type random = InstanceType<typeof SampleClass>;
+
+// const user: random = {
+//   s: "424",
+//   t: "usama",
+// };
