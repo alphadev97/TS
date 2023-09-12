@@ -270,13 +270,15 @@
 
 //? Pick < Type, Keys>
 
-interface OrderInfo {
-  readonly id: string;
-  user: string;
-  city: string;
-  state: string;
-  country: string;
-  status: string;
-}
+// interface OrderInfo {
+//   readonly id: string;
+//   user: string;
+//   city: string;
+//   state: string;
+//   country: string;
+//   status: string;
+// }
+
+// type ShippingInfo = Pick<OrderInfo, "city" | "state" | "country">
 
 //? Omit < Type, Keys>
