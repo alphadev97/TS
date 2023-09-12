@@ -282,3 +282,11 @@
 // type ShippingInfo = Pick<OrderInfo, "city" | "state" | "country">
 
 //? Omit < Type, Keys>
+
+// interface ShippingInfo {
+//   city: string;
+//   state: string;
+//   country: string;
+// }
+
+// type random = Omit<ShippingInfo, "country">;
