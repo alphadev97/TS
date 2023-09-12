@@ -267,3 +267,16 @@
 //   elon: { age: 34 },
 //   jack: { age: 34 },
 // };
+
+//? Pick < Type, Keys>
+
+interface OrderInfo {
+  readonly id: string;
+  user: string;
+  city: string;
+  state: string;
+  country: string;
+  status: string;
+}
+
+//? Omit < Type, Keys>
