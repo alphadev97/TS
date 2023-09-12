@@ -403,3 +403,29 @@
 // };
 
 // const ans = func<Person, Person2>(user, user2);
+
+type Person = {
+  name: string;
+  age: number;
+};
+
+const users: Person[] = [
+  {
+    name: "Usama",
+    age: 25,
+  },
+  {
+    name: "Hammad",
+    age: 20,
+  },
+  {
+    name: "Yasir",
+    age: 24,
+  },
+  {
+    name: "Huzaifa",
+    age: 18,
+  },
+];
+
+const filterByPeoples = (arr: any, property: any, value: any) => {};
