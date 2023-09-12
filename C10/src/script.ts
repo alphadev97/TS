@@ -370,3 +370,36 @@
 // };
 
 // const ans = func<Person>(person1);
+
+// const func = <T, U>(n: T, o: U): { n: T; o: U } => {
+//   return { n, o };
+// };
+
+// const ans = func<number, string>(20, "lol");
+
+// type Person = {
+//   name: string;
+//   age: number;
+// };
+
+// type Person2 = {
+//   name: string;
+//   age: number;
+//   email: string;
+// };
+
+// const user: Person = {
+//   name: "Usama",
+//   age: 25,
+// };
+// const user2: Person2 = {
+//   name: "Usama",
+//   age: 25,
+//   email: "gdsgas@ahsdaj.com",
+// };
+
+// const func = <T, U extends T>(n: T, o: U): { n: T; o: U } => {
+//   return { n, o };
+// };
+
+// const ans = func<Person, Person2>(user, user2);
