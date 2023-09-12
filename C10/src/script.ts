@@ -428,4 +428,15 @@ const users: Person[] = [
   },
 ];
 
-const filterByPeoples = (arr: any, property: any, value: any) => {};
+const filterByPeoples = <T, Key extends keyof T>(
+  arr: T[],
+  property: Key,
+  value: T[Key]
+) => {
+  return arr.filter((item) => item[property] === value);
+};
+
+const filteredPeopleByName = filterByPeoples(users, "name", "Hammad");
+const filteredPeopleByAge = filterByPeoples(users, "age", 18);
+console.log(filteredPeopleByName);
+console.log(filteredPeopleByAge);
