@@ -346,3 +346,27 @@
 // ------------------------------------------------------------------------------------
 
 //! Generics
+
+// const func = <T>(n: T): T => {
+//   return n;
+// };
+
+// const ans = func(20);
+// const ans2 = func("20");
+// const ans3 = func(true);
+
+// type Person = {
+//   name: string;
+//   age: number;
+// };
+
+// const func = <T>(n: T): T => {
+//   return n;
+// };
+
+// const person1: Person = {
+//   name: "Usama",
+//   age: 25,
+// };
+
+// const ans = func<Person>(person1);
