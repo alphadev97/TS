@@ -1,7 +1,11 @@
+import Box from "./components/Box";
+
 function App() {
   return (
     <>
-      <div>hello</div>
+      <div>
+        <Box heading={"Hello World"} />
+      </div>
     </>
   );
 }
