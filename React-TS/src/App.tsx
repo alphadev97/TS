@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <div>
-        <Box heading={"Hello World"} />
+        <Box heading={"Hello World"} count={3254} />
       </div>
     </>
   );
