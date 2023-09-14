@@ -16,10 +16,15 @@ const App = () => {
   const [title, setTitle] = useState<TodoItemType["title"]>("");
 
   const completeHandler = (id: TodoItemType["id"]): void => {
-    alert(id);
+    const newTodo: TodoItemType[] = todos.map((i) => {
+      if (i.id === id) i.isCompleted = !i.isCompleted;
+      return i;
+    });
+    setTodos(newTodo);
   };
   const deleteHandler = (id: TodoItemType["id"]): void => {
-    alert(id);
+    const newTodo: TodoItemType[] = todos.filter((i) => i.id !== id);
+    setTodos(newTodo);
   };
 
   const submitHandler = (): void => {
@@ -55,6 +60,9 @@ const App = () => {
         onChange={(e) => setTitle(e.target.value)}
         fullWidth
         label={"New Task"}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && title !== "") submitHandler();
+        }}
       />
       <Button
         sx={{
@@ -63,6 +71,7 @@ const App = () => {
         fullWidth
         variant="contained"
         onClick={submitHandler}
+        disabled={title === ""}
       >
         Add
       </Button>
