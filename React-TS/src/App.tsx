@@ -1,42 +1,59 @@
-import { FormEvent, useState } from "react";
-import Context from "./components/Context";
+import { useReducer } from "react";
 
-interface Person {
-  name: string;
-  age: number;
-}
+type StateType = {
+  count: number;
+};
+
+type ActionType =
+  | {
+      type: "Increament";
+      payload: number;
+    }
+  | {
+      type: "Decrement";
+      payload: number;
+    };
+
+const reducer = (state: StateType, action: ActionType): StateType => {
+  switch (action.type) {
+    case "Increament":
+      return { count: state.count + action.payload };
+    case "Decrement":
+      return { count: state.count - action.payload };
+
+    default:
+      return state;
+  }
+};
+
+const initialState: StateType = {
+  count: 0,
+};
 
 function App() {
-  const [user, setUser] = useState<Person>();
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(user);
+  const increment = (): void => {
+    dispatch({
+      type: "Increament",
+      payload: 1,
+    });
+  };
+
+  const deccrement = (): void => {
+    dispatch({
+      type: "Decrement",
+      payload: 1,
+    });
   };
 
   return (
-    <>
-      <form onSubmit={submitHandler}>
-        <input
-          type="number"
-          placeholder="Age"
-          value={user?.age || ""}
-          onChange={(e) =>
-            setUser((prev) => ({ ...prev!, age: Number(e.target.value) }))
-          }
-        />
-        <input
-          type="text"
-          placeholder="Name"
-          value={user?.name || ""}
-          onChange={(e) =>
-            setUser((prev) => ({ ...prev!, name: String(e.target.value) }))
-          }
-        />
-        <button type="submit">Regiter</button>
-      </form>
-      <Context />
-    </>
+    <div>
+      <h1>Count Change</h1>
+      <p>Count: {state.count}</p>
+      <button onClick={increment}>+</button>
+      <button onClick={deccrement}>-</button>
+    </div>
   );
 }
 
