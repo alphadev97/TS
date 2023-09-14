@@ -1,19 +1,22 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { incrementByValue } from "./redux";
+import { useDispatch, useSelector } from "react-redux";
+import { StateType, incrementByValue } from "./redux";
 
 function App() {
   const [val, setVal] = useState<number>(0);
 
   const dispatch = useDispatch();
 
+  const count = useSelector((state: StateType) => state.count);
+
   const incrementByValueHandler = () => {
-    dispatch(incrementByValue);
+    dispatch(incrementByValue(val));
   };
 
   return (
     <div>
       <h1>Toolkit</h1>
+      <h2>Count: {count}</h2>
       <button>+</button>
       <button>-</button>
       <input
@@ -21,7 +24,9 @@ function App() {
         value={val}
         onChange={(e) => setVal(Number(e.target.value))}
       />
-      <button onClick={incrementByValueHandler}>Add</button>
+      <button disabled={val < 0} onClick={incrementByValueHandler}>
+        Add
+      </button>
     </div>
   );
 }
