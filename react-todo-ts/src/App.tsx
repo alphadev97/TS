@@ -19,6 +19,13 @@ const App = () => {
     },
   ]);
 
+  const completeHandler = (id: TodoItemType["id"]): void => {
+    alert(id);
+  };
+  const deleteHandler = (id: TodoItemType["id"]): void => {
+    alert(id);
+  };
+
   return (
     <Container maxWidth="sm" sx={{ height: "100vh" }}>
       <AppBar position="static">
@@ -29,7 +36,12 @@ const App = () => {
 
       <Stack height={"70%"} direction={"column"} spacing={"1rem"} p={"1rem"}>
         {todos.map((i) => (
-          <TodoItem key={i.id} todo={i} />
+          <TodoItem
+            completeHandler={completeHandler}
+            deleteHandler={deleteHandler}
+            key={i.id}
+            todo={i}
+          />
         ))}
       </Stack>
       <TextField fullWidth label={"New Task"} />
