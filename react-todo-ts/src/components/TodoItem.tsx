@@ -1,5 +1,13 @@
-import { Button, Checkbox, Paper, Stack, Typography } from "@mui/material";
+import {
+  Button,
+  Checkbox,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
+import { useState } from "react";
 
 type PropsType = {
   todo: TodoItemType;
@@ -8,6 +16,8 @@ type PropsType = {
 };
 
 const TodoItem = ({ todo, completeHandler, deleteHandler }: PropsType) => {
+  const [editActive, setEditActive] = useState<boolean>(false);
+
   return (
     <Paper
       sx={{
@@ -16,7 +26,12 @@ const TodoItem = ({ todo, completeHandler, deleteHandler }: PropsType) => {
       variant="outlined"
     >
       <Stack direction={"row"} alignItems={"center"}>
-        <Typography marginRight={"auto"}>{todo.title}</Typography>
+        {editActive ? (
+          <TextField />
+        ) : (
+          <Typography marginRight={"auto"}>{todo.title}</Typography>
+        )}
+
         <Checkbox
           checked={todo.isCompleted}
           onClick={() => completeHandler(todo.id)}
@@ -24,7 +39,7 @@ const TodoItem = ({ todo, completeHandler, deleteHandler }: PropsType) => {
         <Button onClick={() => deleteHandler(todo.id)}>
           <Delete />
         </Button>
-        <Button>
+        <Button onClick={() => setEditActive((prev) => !prev)}>
           <Edit />
         </Button>
       </Stack>
