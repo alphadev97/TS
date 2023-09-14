@@ -1,5 +1,7 @@
+import { Container } from "@mui/material";
+
 const App = () => {
-  return <div>App</div>;
+  return <Container>Usama</Container>;
 };
 
 export default App;
