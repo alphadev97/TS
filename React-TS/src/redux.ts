@@ -23,7 +23,7 @@
 
 // ----------------Create Slice --------------------
 
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
 
 interface StateType {
   count: number;
@@ -41,7 +41,12 @@ const rootSlice = createSlice({
     decrement: (state) => {
       state.count -= 1;
     },
+    incrementByValue: (state, action: PayloadAction<number>) => {
+      state.count = action.payload;
+    },
   },
 });
+
+export const { increment, decrement, incrementByValue } = rootSlice.actions;
 
 export const store = configureStore({ reducer: rootSlice.reducer });
