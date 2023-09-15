@@ -1,5 +1,11 @@
+import { AppBar, Toolbar } from "@mui/material";
+
 const Header = () => {
-  return <div>Header</div>;
+  return (
+    <AppBar>
+      <Toolbar></Toolbar>
+    </AppBar>
+  );
 };
 
 export default Header;
