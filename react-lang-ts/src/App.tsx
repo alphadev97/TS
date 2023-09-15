@@ -6,6 +6,7 @@ const Home = lazy(() => import("./components/Home"));
 const Learning = lazy(() => import("./components/Learning"));
 const Quiz = lazy(() => import("./components/Quiz"));
 const Result = lazy(() => import("./components/Result"));
+const Login = lazy(() => import("./components/Login"));
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/learn" element={<Learning />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/result" element={<Result />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
