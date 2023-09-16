@@ -1,6 +1,6 @@
-import { Container, Typography } from "@mui/material";
+import { Button, Container, Stack, Typography } from "@mui/material";
 
-const laguages = [
+const languages = [
   {
     name: "Japanese",
     code: "js",
@@ -29,6 +29,13 @@ const Home = () => {
       <Typography variant="h3" p={"2rem"} textAlign={"center"}>
         Welcome, Begin journey of your learning!
       </Typography>
+      <Stack direction={"row"} spacing={"2rem"}>
+        {languages.map((i) => (
+          <Button key={i.code} variant="contained">
+            {i.name}
+          </Button>
+        ))}
+      </Stack>
     </Container>
   );
 };
