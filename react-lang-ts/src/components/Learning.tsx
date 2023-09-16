@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
@@ -10,7 +11,7 @@ const Learning = () => {
     setCount((prev) => prev + 1);
   };
 
-  return <div>Learning</div>;
+  return <Container maxWidth={"sm"}></Container>;
 };
 
 export default Learning;
