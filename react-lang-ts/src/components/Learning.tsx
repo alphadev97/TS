@@ -1,5 +1,5 @@
 import { ArrowBack } from "@mui/icons-material";
-import { Button, Container } from "@mui/material";
+import { Button, Container, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
@@ -26,6 +26,12 @@ const Learning = () => {
       >
         <ArrowBack />
       </Button>
+      <Typography m={"2rem 0"}>Learning Made Easy</Typography>
+      <Stack direction={"row"} spacing={"1rem"}>
+        <Typography variant="h4">
+          {count + 1} - {"Sample"}
+        </Typography>
+      </Stack>
     </Container>
   );
 };
