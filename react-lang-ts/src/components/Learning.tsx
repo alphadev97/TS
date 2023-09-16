@@ -19,7 +19,11 @@ const Learning = () => {
         padding: "1rem",
       }}
     >
-      <Button onClick={() => navigate("/")}>
+      <Button
+        onClick={
+          count === 0 ? () => navigate("/") : () => setCount((prev) => prev - 1)
+        }
+      >
         <ArrowBack />
       </Button>
     </Container>
