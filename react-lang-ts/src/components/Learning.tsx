@@ -1,9 +1,14 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Learning = () => {
   const [count, setCount] = useState<number>(0);
-  const params = useSearchParams()[0].get("language");
+  const params = useSearchParams()[0].get("language") as LangType;
+  const navigate = useNavigate();
+
+  const nextHandler = (): void => {
+    setCount((prev) => prev + 1);
+  };
 
   return <div>Learning</div>;
 };
