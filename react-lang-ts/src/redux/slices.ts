@@ -21,6 +21,16 @@ const rootSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    saveResult: (state, action: PayloadAction<string[]>) => {
+      state.loading = false;
+      state.result = action.payload;
+    },
+    clearState: (state) => {
+      state.loading = false;
+      state.result = [];
+      state.words = [];
+      state.error = undefined;
+    },
   },
 });
 
