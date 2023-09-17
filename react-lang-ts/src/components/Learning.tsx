@@ -1,4 +1,4 @@
-import { ArrowBack } from "@mui/icons-material";
+import { ArrowBack, VolumeUp } from "@mui/icons-material";
 import { Button, Container, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -31,6 +31,12 @@ const Learning = () => {
         <Typography variant="h4">
           {count + 1} - {"Sample"}
         </Typography>
+        <Typography color={"blue"} variant="h4">
+          : {"LOL"}
+        </Typography>
+        <Button sx={{ borderRadius: "50%" }}>
+          <VolumeUp />
+        </Button>
       </Stack>
     </Container>
   );
