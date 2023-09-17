@@ -38,6 +38,15 @@ const Learning = () => {
           <VolumeUp />
         </Button>
       </Stack>
+      <Button
+        sx={{
+          margin: "3rem 0",
+        }}
+        variant="contained"
+        fullWidth
+      >
+        {"Next"}
+      </Button>
     </Container>
   );
 };
