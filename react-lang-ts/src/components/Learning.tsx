@@ -1,16 +1,35 @@
 import { ArrowBack, VolumeUp } from "@mui/icons-material";
 import { Button, Container, Stack, Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { translateWords } from "../utils/feature";
+import { useDispatch } from "react-redux";
+import {
+  getWordsFail,
+  getWordsRequest,
+  getWordsSuccess,
+} from "../redux/slices";
 
 const Learning = () => {
   const [count, setCount] = useState<number>(0);
   const params = useSearchParams()[0].get("language") as LangType;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const nextHandler = (): void => {
     setCount((prev) => prev + 1);
   };
+
+  useEffect(() => {
+    dispatch(getWordsRequest());
+    translateWords(params || "hi")
+      .then((arr) => {
+        dispatch(getWordsSuccess(arr));
+      })
+      .catch((err) => {
+        dispatch(getWordsFail(err));
+      });
+  }, []);
 
   return (
     <Container
