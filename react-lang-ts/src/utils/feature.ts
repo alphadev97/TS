@@ -1,11 +1,13 @@
 import axios from "axios";
 import { generate } from "random-words";
 
-export const translateWords = async (params: LangType) => {
+export const translateWords = async (params: LangType): Promise<WordType[]> => {
   try {
-    const words = generate(8);
+    const words = generate(8).map((i) => ({
+      Text: i,
+    }));
 
-    axios.post(
+    const response = await axios.post(
       "https://microsoft-translator-text.p.rapidapi.com/translate",
       words,
       {
@@ -23,5 +25,20 @@ export const translateWords = async (params: LangType) => {
         },
       }
     );
-  } catch (error) {}
+
+    const recieve: FetchedDataType[] = response.data;
+
+    const arr: WordType[] = recieve.map((i, index) => {
+      return {
+        word: i.translations[0].text,
+        meaning: words[index].Text,
+        options: ["fdf"],
+      };
+    });
+
+    return arr;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error while requesting API");
+  }
 };
