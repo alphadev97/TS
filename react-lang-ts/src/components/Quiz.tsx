@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Quiz = () => {
@@ -16,6 +17,8 @@ const Quiz = () => {
   const [count, setCount] = useState<number>(0);
   const [ans, setAns] = useState<string>("");
   const navigate = useNavigate();
+
+  const { words } = useSelector((state: { root: StateType }) => state.root);
 
   const nextHandler = (): void => {
     setResult((prev) => [...prev, ans]);
