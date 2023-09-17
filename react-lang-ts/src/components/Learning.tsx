@@ -44,8 +44,9 @@ const Learning = () => {
         }}
         variant="contained"
         fullWidth
+        onClick={count === 7 ? () => navigate("/quiz") : nextHandler}
       >
-        {"Next"}
+        {count === 7 ? "Text" : "Next"}
       </Button>
     </Container>
   );
