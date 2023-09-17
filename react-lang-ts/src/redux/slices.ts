@@ -34,4 +34,12 @@ const rootSlice = createSlice({
   },
 });
 
+export const {
+  getWordsRequest,
+  getWordsSuccess,
+  getWordsFail,
+  saveResult,
+  clearState,
+} = rootSlice.actions;
+
 export default rootSlice.reducer;
