@@ -9,6 +9,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { clearState } from "../redux/slices";
 import { useNavigate } from "react-router-dom";
+import { countMatchingElements } from "../utils/feature";
 
 const Result = () => {
   const { words, result } = useSelector(
@@ -17,7 +18,10 @@ const Result = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const correctAns = 5;
+  const correctAns = countMatchingElements(
+    result,
+    words.map((i) => i.meaning)
+  );
   const percentage = (correctAns / words.length) * 100;
 
   const resetHandler = (): void => {
@@ -66,7 +70,8 @@ const Result = () => {
         variant="h5"
         color={percentage > 50 ? "green" : "red"}
       >
-        {percentage > 50 ? "Pass" : "Fail"}
+        {percentage > 50 ? "Pass" : "Fail"} <br />
+        {`You got ${percentage}%`}
       </Typography>
 
       <Button
