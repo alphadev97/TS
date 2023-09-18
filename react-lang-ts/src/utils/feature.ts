@@ -86,6 +86,9 @@ export const fetchAudio = async (
   text: string,
   language: LangType
 ): Promise<string> => {
+  const key = import.meta.env.VITE_TEXT_TO_SPEECH_API;
+  const rapidKey = import.meta.env.VITE_RAPID_API;
+
   const encodedParams = new URLSearchParams({
     src: text,
 
@@ -96,19 +99,22 @@ export const fetchAudio = async (
 
   if (language === "ar") encodedParams.set("hl", "ar-sa");
   else if (language === "es") encodedParams.set("hl", "es-es");
+  else if (language === "fr") encodedParams.set("hl", "fr-fr");
+  else if (language === "js") encodedParams.set("hl", "ja-jp");
+  else encodedParams.set("hl", "tr-tr");
 
-  const {} = await axios.post(
+  const { data }: { data: string } = await axios.post(
     "https://voicerss-text-to-speech.p.rapidapi.com/",
     encodedParams,
     {
-      params: { key: "5acfbbd6141a43129a6ae3765501d578" },
+      params: { key },
       headers: {
         "content-type": "application/x-www-form-urlencoded",
-        "X-RapidAPI-Key": "340b644fa8msha4b183696f3661bp1e3ca4jsndfc8eb7d25df",
+        "X-RapidAPI-Key": rapidKey,
         "X-RapidAPI-Host": "voicerss-text-to-speech.p.rapidapi.com",
       },
     }
   );
 
-  return "";
+  return data;
 };
