@@ -30,6 +30,8 @@ export const translateWords = async (params: LangType): Promise<WordType[]> => {
       Text: i,
     }));
 
+    const apiKey = import.meta.env.VITE_MICROSOFT_TRANSLATION_API_KEY;
+
     const response = await axios.post(
       "https://microsoft-translator-text.p.rapidapi.com/translate",
       words,
@@ -42,8 +44,7 @@ export const translateWords = async (params: LangType): Promise<WordType[]> => {
         },
         headers: {
           "content-type": "application/json",
-          "X-RapidAPI-Key":
-            "340b644fa8msha4b183696f3661bp1e3ca4jsndfc8eb7d25df",
+          "X-RapidAPI-Key": apiKey,
           "X-RapidAPI-Host": "microsoft-translator-text.p.rapidapi.com",
         },
       }
@@ -95,6 +96,7 @@ export const fetchAudio = async (
     r: "0",
     c: "mp3",
     f: "8khz_8bit_mono",
+    b64: "true",
   });
 
   if (language === "ar") encodedParams.set("hl", "ar-sa");
