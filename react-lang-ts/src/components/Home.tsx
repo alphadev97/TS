@@ -7,8 +7,8 @@ const languages = [
     code: "js",
   },
   {
-    name: "Urdu",
-    code: "ur",
+    name: "Turkish",
+    code: "tr",
   },
   {
     name: "Arabic",
