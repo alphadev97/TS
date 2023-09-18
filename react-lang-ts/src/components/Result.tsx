@@ -6,21 +6,25 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-
-const result = ["lol", "Sample", "Ans"];
-
-const words = [
-  {
-    meaning: "Ashjf",
-  },
-  {
-    meaning: "Adfsdfshjf",
-  },
-];
+import { useSelector, useDispatch } from "react-redux";
+import { clearState } from "../redux/slices";
+import { useNavigate } from "react-router-dom";
 
 const Result = () => {
+  const { words, result } = useSelector(
+    (state: { root: StateType }) => state.root
+  );
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const correctAns = 5;
   const percentage = (correctAns / words.length) * 100;
+
+  const resetHandler = (): void => {
+    navigate("/");
+    dispatch(clearState());
+  };
+
   return (
     <Container maxWidth={"sm"}>
       <Typography variant="h3" color={"primary"} m={"2rem 0"}>
@@ -65,7 +69,11 @@ const Result = () => {
         {percentage > 50 ? "Pass" : "Fail"}
       </Typography>
 
-      <Button sx={{ margin: "1rem" }} variant="contained">
+      <Button
+        onClick={resetHandler}
+        sx={{ margin: "1rem" }}
+        variant="contained"
+      >
         Reset
       </Button>
     </Container>
