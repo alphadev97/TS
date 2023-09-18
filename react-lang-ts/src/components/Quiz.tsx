@@ -8,15 +8,17 @@ import {
   RadioGroup,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { saveResult } from "../redux/slices";
 
 const Quiz = () => {
   const [result, setResult] = useState<string[]>([]);
   const [count, setCount] = useState<number>(0);
   const [ans, setAns] = useState<string>("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const { words } = useSelector((state: { root: StateType }) => state.root);
 
@@ -25,6 +27,10 @@ const Quiz = () => {
     setCount((prev) => prev + 1);
     setAns("");
   };
+
+  useEffect(() => {
+    dispatch(saveResult(result));
+  }, [result]);
 
   return (
     <Container
