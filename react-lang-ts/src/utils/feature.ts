@@ -19,9 +19,9 @@ const generateMCQ = (
     3
   ).map((i) => i.Text);
 
-  const mcsQptions = 
+  const mcsQptions = _.shuffle([...incorrectOption, correctAns]);
 
-  return [];
+  return mcsQptions;
 };
 
 export const translateWords = async (params: LangType): Promise<WordType[]> => {
