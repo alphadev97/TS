@@ -35,7 +35,7 @@ const Quiz = () => {
     >
       <Typography m={"2rem 0"}>Quiz</Typography>
       <Typography variant="h3">
-        {count + 1} - {"Randoms"}
+        {count + 1} - {words[count]?.word}
       </Typography>
 
       <FormControl>
@@ -48,11 +48,14 @@ const Quiz = () => {
           Meaning
         </FormLabel>
         <RadioGroup value={ans} onChange={(e) => setAns(e.target.value)}>
-          <FormControlLabel
-            value={"LoL"}
-            control={<Radio />}
-            label={"Option 1"}
-          />
+          {words[count]?.options.map((i, idx) => (
+            <FormControlLabel
+              value={i}
+              control={<Radio />}
+              label={i}
+              key={idx}
+            />
+          ))}
         </RadioGroup>
       </FormControl>
       <Button
@@ -64,7 +67,7 @@ const Quiz = () => {
         onClick={nextHandler}
         disabled={ans === ""}
       >
-        {count === 7 ? "Submit" : "Next"}
+        {count === words.length - 1 ? "Submit" : "Next"}
       </Button>
     </Container>
   );
