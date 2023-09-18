@@ -1,5 +1,28 @@
 import axios from "axios";
 import { generate } from "random-words";
+import _ from "lodash";
+
+const generateMCQ = (
+  meaning: {
+    Text: string;
+  }[],
+  idx: number
+): string[] => {
+  const correctAns: string = meaning[idx].Text;
+
+  const allMeaningExceptForCorrect = meaning.filter(
+    (i) => i.Text !== correctAns
+  );
+
+  const incorrectOption: string[] = _.sampleSize(
+    allMeaningExceptForCorrect,
+    3
+  ).map((i) => i.Text);
+
+  const mcsQptions = 
+
+  return [];
+};
 
 export const translateWords = async (params: LangType): Promise<WordType[]> => {
   try {
@@ -29,10 +52,11 @@ export const translateWords = async (params: LangType): Promise<WordType[]> => {
     const recieve: FetchedDataType[] = response.data;
 
     const arr: WordType[] = recieve.map((i, index) => {
+      const options: string[] = generateMCQ(words, index);
       return {
         word: i.translations[0].text,
         meaning: words[index].Text,
-        options: ["fdf"],
+        options,
       };
     });
 
