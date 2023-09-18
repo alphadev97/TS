@@ -81,3 +81,34 @@ export const countMatchingElements = (
 
   return matchedCount;
 };
+
+export const fetchAudio = async (
+  text: string,
+  language: LangType
+): Promise<string> => {
+  const encodedParams = new URLSearchParams({
+    src: text,
+
+    r: "0",
+    c: "mp3",
+    f: "8khz_8bit_mono",
+  });
+
+  if (language === "ar") encodedParams.set("hl", "ar-sa");
+  else if (language === "es") encodedParams.set("hl", "es-es");
+
+  const {} = await axios.post(
+    "https://voicerss-text-to-speech.p.rapidapi.com/",
+    encodedParams,
+    {
+      params: { key: "5acfbbd6141a43129a6ae3765501d578" },
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+        "X-RapidAPI-Key": "340b644fa8msha4b183696f3661bp1e3ca4jsndfc8eb7d25df",
+        "X-RapidAPI-Host": "voicerss-text-to-speech.p.rapidapi.com",
+      },
+    }
+  );
+
+  return "";
+};
