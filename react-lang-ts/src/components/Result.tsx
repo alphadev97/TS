@@ -70,8 +70,7 @@ const Result = () => {
         variant="h5"
         color={percentage > 50 ? "green" : "red"}
       >
-        {percentage > 50 ? "Pass" : "Fail"} <br />
-        {`You got ${percentage}%`}
+        {percentage > 50 ? "Pass" : "Fail"} ( {`You got ${percentage}%`} )
       </Typography>
 
       <Button
